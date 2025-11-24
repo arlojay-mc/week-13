@@ -6,8 +6,10 @@ Description: Summarizes data from ch_9_lab_data.txt into a summary.txt file
 
 from pathlib import Path
 
+# Configurable file paths
 INPUT_FILE = Path.resolve(Path("./ch_9_lab_data.txt"))
 OUTPUT_FILE = Path.resolve(Path("./output.txt"))
+
 
 def main():
     input_handle = open(INPUT_FILE, "r")
@@ -15,7 +17,9 @@ def main():
     dataset_sum = 0
     dataset_size = 0
 
+    # Read input dataset
     while True:
+        # Read each line as its own number
         line = input_handle.readline()
         if not line: break
 
@@ -28,12 +32,14 @@ def main():
             print("Exception: encountered non-integer in dataset: " + line)
             return
         
-    input_handle.close()
+    input_handle.close() # Stop using the raw data in the input file
 
+    # Prevents a divide-by-zero error if no elements are present in the dataset file
     if(dataset_size == 0):
         print("No elements found in " + str(INPUT_FILE))
         return
 
+    # Write output table
     with open(OUTPUT_FILE, "w") as output_handle:
         output_handle.writelines([
             "======= Dataset Summary =======\n"
