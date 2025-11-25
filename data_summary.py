@@ -12,7 +12,12 @@ OUTPUT_FILE = Path.resolve(Path("./output.txt"))
 
 
 def main():
-    input_handle = open(INPUT_FILE, "r")
+    input_handle = None
+    try:
+        input_handle = open(INPUT_FILE, "r")
+    except FileNotFoundError:
+        print("Error: Data file " + str(INPUT_FILE) + " not found")
+        return
 
     dataset_sum = 0
     dataset_size = 0
@@ -47,6 +52,8 @@ def main():
             f"{'Sum:':<8}{dataset_sum:>20,}\n"
             f"{'Avg:':<8}{dataset_sum / dataset_size:>23,.2f}\n"
         ])
+    
+    print("Output written to " + str(OUTPUT_FILE))
 
 
 main()
