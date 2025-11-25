@@ -7,8 +7,8 @@ Description: Summarizes data from ch_9_lab_data.txt into a summary.txt file
 from pathlib import Path
 
 # Configurable file paths
-INPUT_FILE = Path.resolve(Path("./ch_9_lab_data.txt"))
-OUTPUT_FILE = Path.resolve(Path("./output.txt"))
+INPUT_FILE = Path.resolve(Path("./data/ch_9_lab_data.txt"))
+OUTPUT_FILE = Path.resolve(Path("./data/output.txt"))
 
 
 def main():
