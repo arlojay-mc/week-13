@@ -12,8 +12,8 @@ import re
 DB_FILE = Path.resolve(Path("./data/users.db"))
 
 # Define for configuration and compile for performance
-username_regex = r"[a-zA-Z_\-]+"
-email_regex = r"[a-z\.\-]+@[a-z\.\-]+\.[a-z]{2,10}"
+username_regex = r"[a-zA-Z_0-9\-]+"
+email_regex = r"[a-z0-9\.\-]+@[a-z0-9\.\-]+\.[a-z]{2,10}"
 
 user_input_regex = r"^(" + username_regex + r")\s(" + email_regex + r")$"
 user_input_pattern = re.compile(user_input_regex)
